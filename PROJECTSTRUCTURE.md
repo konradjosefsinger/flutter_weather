@@ -13,4 +13,6 @@ flutter_weather
                 |-- models/
                     |-- location.dart
                     |-- weather.dart
+                    |-- models.dart
+            |-- open_meteo_api.dart
         |-- test/
