@@ -24,3 +24,16 @@ Separate applications into layers
 - MultiBlocProvider, a Flutter widget that merges multiple BlocProvider widgets into one
 - BlocConsumer, a Flutter widget that exposes a builder and listener in order to react to new states
 - HydratedBloc to manage and persist state
+
+### Architecture
+Following the bloc architecture guidelines, the application will consist of several layers
+- **Data**: retrieve raw weather data from an API
+- **Repository**: abstract the data layer and expose domain models for the application to consume
+- **Business Logic**: manage the state of each feature
+- **Presentation**: display weather information and collect input from users
+
+### Data Layer
+[Open Meteo API](https://open-meteo.com/)
+For this application the folowing endpoints of the Open Meteo API are used:
+- (https://geocoding-api.open-meteo.com/v1/search?name=$city&count=1) to get a location for a given city name
+- (https://api.open-meteo.com/v1/forecast?latitude=$latitude&longitude=$longitude&current_weather=true) to get the weather for a given location
