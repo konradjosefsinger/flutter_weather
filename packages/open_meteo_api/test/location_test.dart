@@ -45,7 +45,7 @@ void main () {
       test('throws error when JSON is missing required keys', () {
         expect(
           () => Location.fromJson(<String, dynamic> {'id': 4887398}),
-          throwsA(isA<FormatException>()),
+          throwsA(isA<TypeError>()),
         );
       });
 
@@ -57,7 +57,7 @@ void main () {
             'latitude': null,
             'longitude': null,
           }),
-          throwsA(isA<FormatException>()),
+          throwsA(isA<TypeError>()),
         );
       });
     });

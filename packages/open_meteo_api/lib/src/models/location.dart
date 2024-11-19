@@ -29,8 +29,16 @@ class Location {
     required this.longitude,
   });
 
-  factory Location.fromJson(Map<String, dynamic> json) =>
-      _$LocationFromJson(json);
+  factory Location.fromJson(Map<String, dynamic> json) {
+    if (!json.containsKey('id') ||
+        !json.containsKey('name') ||
+        !json.containsKey('latitude') ||
+        !json.containsKey('longitude')) {
+      throw FormatException('Missing required key(s) in JSON');
+    }
+    if (json['id'])
+  }
+  _$LocationFromJson(json);
 
   final int id;
   final String name;
