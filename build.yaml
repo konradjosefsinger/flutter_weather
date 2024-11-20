@@ -1,8 +1,22 @@
+# A build file in Flutter/Dart typically refers to a configuration file used by the build system to define how code should be generated, processed, or transformed during the build process.
+# In the case of Dart and Flutter, this is often related t build_runner and its associated builders.
+# It is used e.g. to control the behavior of code generation tools.
+
+# The targets section is used to define the build configurations for specific targets
 targets:
+  # The $default target is typically used when no custom target is specified
   $default:
+    # Under builders, one defines ehich builders to apply to this target.
+    # A builder is a tool that processess the source code in some way - like generating code or transforming files
     builders:
+      # -> In this case, json_serializable is abuilder that automatically generates serialization code for Dart classes
       json_serializable:
+        # The options section provides specific configuration options for the builder.
+        # These options are usually passed as parameters to customize how the builder behaves
         options:
+          # -> "field_rename: snake" ensures that all field names in the generated JSON are written in snake_case
           field_rename: snake
+          # -> "checked: true" enables a runtime check for nullability, which ensures that all required fields are non-null 
           checked: true
+          # -> "explicit_to_json: true" means that nested objects will also be serialized with their toJson method
           explicit_to_json: true
