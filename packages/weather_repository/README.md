@@ -1,2 +1,6 @@
 ### Repository Layer
 The goal of the repository layer is to abstract the data layer and facilitate communication with the bloc layer. In doing this, the rest of the codebase depends only on functions exposed by the repository layer instead of specific data provider implementations. This allows to change data providers without disrupting any of the application-level code. For example, if it's decided to migrate away from this particular weather API, one should be able to create a new API client and swap it out without having to make changes to the public API of the repository or application layers.
+
+### Weather Repository
+The main goal of the WeatherRepository is to provide an interface which abstracts the data provider. In this case, the WeatherRepository will have a dependency on the WeatherApiClient and expose a single public method, getWeather(String city)
+-> Consumers of the WeatherRepository are not privy to the underlying implementation details such as the fact that two network requests are made to the weather API. The goal of the WeatherRepository is to separate the "what" from the "how" - in other words, we want to have a way to fetch weather for a given city, but don't care about how or where that data is coming from
