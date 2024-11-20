@@ -40,7 +40,7 @@ class Location {
         json['name'] == null ||
         json['latitude'] == null ||
         json['longitude'] == null) {
-          throw FormatException('Null value(s) in JSON for required fields');
+          throw const FormatException('Null value(s) in JSON for required fields');
     }
     return _$LocationFromJson(json);
   }
