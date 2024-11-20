@@ -150,10 +150,10 @@ void main () {
         );
       });
 
-      test('throws WeatherNotFoundFailure on empty response'. () {
+      test('throws WeatherNotFoundFailure on empty response', () {
         final response = MockResponse();
         when(() => response.statusCode).thenReturn(200);
-        when(() => response.body).thenReturn(200);
+        when(() => response.body).thenReturn('{}');
         when(() => httpClient.get(any())).thenAnswer((_) async => response);
         expect(
           () async => apiClient.getWeather(
