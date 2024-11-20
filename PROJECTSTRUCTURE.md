@@ -4,6 +4,9 @@ flutter_weather
     |-- settings/
     |-- theme/
     |-- weather/
+        |-- cubit/
+            |-- weather_cubit.dart
+            |-- weather_state.dart
     |-- main.dart
 |-- test/
 |-- packages/
@@ -29,3 +32,4 @@ flutter_weather
                     |-- models.dart
                     |-- weather.dart
         |--test
+    
