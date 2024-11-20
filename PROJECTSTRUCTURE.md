@@ -19,3 +19,13 @@ flutter_weather
                 |-- open_meteo_api_client.dart
             |-- open_meteo_api.dart
         |-- test/
+            |-- locastion_test.dart
+            |-- open_meteo_api_client.dart
+            |-- weather_test.dart
+    |-- weather_repository/
+        |-- lib/
+            |-- src/
+                |-- models/
+                    |-- models.dart
+                    |-- weather.dart
+        |--test
