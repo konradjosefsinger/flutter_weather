@@ -11,7 +11,7 @@ class MockResponse extends Mock implements http.Response {}
 
 class FakeUri extends Fake implements Uri {}
 
-void main () {
+void main() {
   group('OpenMeteoApiClient', () {
     late http.Client httpClient;
     late OpenMeteoApiClient apiClient;
@@ -87,7 +87,7 @@ void main () {
       test('returns Location on valid response', () async {
         final response = MockResponse();
         when(() => response.statusCode).thenReturn(200);
-        when (() => response.body).thenReturn(
+        when(() => response.body).thenReturn(
           '''
           {
             "results": [
@@ -106,10 +106,10 @@ void main () {
         expect(
           actual,
           isA<Location>()
-            .having((l) => l.name, 'name', 'Chicago')
-            .having((l) => l.id, 'id', 4887398)
-            .having((l) => l.latitude, 'latitude', 41.85003)
-            .having((l) => l.longitude, 'longitude', -87.65005),
+              .having((l) => l.name, 'name', 'Chicago')
+              .having((l) => l.id, 'id', 4887398)
+              .having((l) => l.latitude, 'latitude', 41.85003)
+              .having((l) => l.longitude, 'longitude', -87.65005),
         );
       });
     });
@@ -177,12 +177,13 @@ void main () {
             "timezone": "GMT",
             "timezone_abbreviation": "GMT",
             "elevation": 189,
-            "current_weather": {
-            "temperature": 15.3,
-            "windspeed": 25.8,
-            "winddirection": 310,
-            "weathercode": 63,
-            "time": "2022-09-12T01:00"
+              "current_weather": {
+              "temperature": 15.3,
+              "windspeed": 25.8,
+              "winddirection": 310,
+              "weathercode": 63.0,
+              "time": "2022-09-12T01:00"
+            }
           }
           ''',
         );
@@ -194,8 +195,8 @@ void main () {
         expect(
           actual,
           isA<Weather>()
-            .having((w) => w.temperature, 'temperature', 15.3)
-            .having((w) => w.weatherCode, 'weatherCode', 63.0),
+              .having((w) => w.temperature, 'temperature', 15.3)
+              .having((w) => w.weatherCode, 'weatherCode', 63.0),
         );
       });
     });
