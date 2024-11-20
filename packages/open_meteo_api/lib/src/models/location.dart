@@ -30,15 +30,20 @@ class Location {
   });
 
   factory Location.fromJson(Map<String, dynamic> json) {
-    if (!json.containsKey('id') ||
-        !json.containsKey('name') ||
-        !json.containsKey('latitude') ||
-        !json.containsKey('longitude')) {
-      throw FormatException('Missing required key(s) in JSON');
+    const requiredKeys = ['id', 'name', 'latitude', 'longitude'];
+    for (var key in requiredKeys) {
+      if(!json.containsKey(key)) {
+        throw FormatException('Missing required key: $key');
+      }
     }
-    if (json['id'])
+    if (json['id'] == null ||
+        json['name'] == null ||
+        json['latitude'] == null ||
+        json['longitude'] == null) {
+          throw FormatException('Null value(s) in JSON for required fields');
+    }
+    return _$LocationFromJson(json);
   }
-  _$LocationFromJson(json);
 
   final int id;
   final String name;
